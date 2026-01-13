@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import './App.css'
 import Header from "./components/Nav/Header"
+import Footer from "./components/Footer/Footer"
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
         <main>
             <Outlet />
         </main>
+
+        <Footer />
     </>
   )
 }

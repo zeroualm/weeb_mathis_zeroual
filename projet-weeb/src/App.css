@@ -1,7 +1,9 @@
+/* CSS Général */
+
 * {
     color: var(--primary-text);
     font-family: "Roboto", sans-serif;
-    margin: 0 auto;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
 }
@@ -11,15 +13,34 @@
     --primary-text : #FFFFFF;
     --secondary-text : #C084FC;
     --btn-purple : #9333EA;
+    --footer-header :#94A3B8;
+    --footer-link :#0F172A;
 }
 
 #root {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 80px;
+}
+
+.home-container {
+    width: 100%;
     max-width: 1280px;
+    margin: 0 auto;
+    padding: 30px 20px;
     text-align: center;
+}
+
+.home-container section {
+    padding: 24px 24px;
 }
 
 body {
     background-color: var(--primary-bg);
+    min-height: 100vh;
 }
 
 h1 {
@@ -27,31 +48,103 @@ h1 {
     font-weight: 800;
 }
 
+.secondary-text {
+    color: var(--secondary-text);
+}
+
+.secondary-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-text);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+}
+
+.upper-text {
+    text-transform: uppercase;
+}
+
+/* Home */
+
 .home-container {
     display: flex;
     flex-direction: column;
     gap: 80px;
-}
-
-.home-container h1 span {
-    color: var(--secondary-text);
-    font-weight: 300;
+    align-items: center;
 }
 
 .home-container img{
-    width: 1100px;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
 }
 
-.txt-important {
-    color: var(--secondary-text);
+/* Home hero */
+
+.home-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.home-entreprises {
+.home-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Home entreprises */
+
+.home-entreprise {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.home-entreprise h1 {
+    font-size: 56px;
+    font-weight: 800;
+}
+
+.home-entreprise-list {
     display: flex;
     flex-direction: row;
+    gap: 60px;
 }
 
-.home-entreprises img {
+.home-entreprise-list img {
     height: 32px;
-    width: 175px;
+    width: auto;
+}
+
+/* Home Ressources */
+
+.home-ressources {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+}
+
+.home-ressources div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Home Ecosystem */
+
+.home-ecosystem {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+}
+
+.home-ecosystem div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

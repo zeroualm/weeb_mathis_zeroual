@@ -2,26 +2,48 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    box-shadow: 0px 0px 15px 0px #00000012;
-    box-shadow: 0px 25px 50px -12px #00000040;
+    align-items: center;
+    box-shadow: 0px 0px 15px 0px #00000012, 0px 25px 50px -12px #00000040;
     background: #FFFFFF0D;
     border-radius: 20px;
     margin-top: 10px;
     height: 60px;
+    width: 100%;   
+    max-width: 1000px;
+    padding: 0 56px;
+    margin : 0 auto;
+    margin-top: 40px;
 }
 
-nav div{
+nav div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
-nav span{
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo a{
     font-size: 32px;
     font-weight: 700;
 }
 
 nav a {
     text-decoration: none;
+    color: var(--primary-text);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-text);
+}
+
+nav button.btn-primary {
+    font-size: 16px;
+    font-weight: 400;
 }

@@ -1,0 +1,85 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--primary-text);
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--primary-bg);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--btn-purple);
+}
+
+footer p {
+    color: var(--primary-bg);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo a {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-bg);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    max-width: 1280px;
+    gap: 24px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+}
+
+.footer-links div h3 {
+    color: var(--footer-header);
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.footer-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    border-top: 1px solid #E2E8F0;
+    padding-top: 24px;
+}
+
+.footer-media-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    font-size: 24px;
+    fill: var(--primary-bg);
+    color: var(--primary-bg);
+    transition: fill 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+    fill: var(--btn-purple);
+    color: var(--btn-purple);
+}

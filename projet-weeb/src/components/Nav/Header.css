@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px 0px #00000012;
+    box-shadow: 0px 25px 50px -12px #00000040;
+    background: #FFFFFF0D;
+    border-radius: 20px;
+    margin-top: 10px;
+    height: 60px;
+}
+
+nav div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+nav span{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+nav a {
+    text-decoration: none;
+}

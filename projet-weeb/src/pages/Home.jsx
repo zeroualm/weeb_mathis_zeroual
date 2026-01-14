@@ -23,8 +23,9 @@ const Home = () => {
                 <p>Le monde du web évolue constamment, et nous sommes là pour vous guider à travers ses tendances, technologies et meilleures pratiques. Que vous soyez développeur, designer ou passionné du digital, notre blog vous offre du contenu de qualité pour rester à la pointe.</p>
   
                 <div className="home-btn-container">
-                    <Button type="btn-primary" label="Découvrir les articles" />
-                    <Button type="btn-secondary" label="S'abonner à la newsletter"/>
+                    <Button variant="primary"> Découvrir les articles</Button>
+                    
+                    <Button variant="secondary">S'abonner à la newsletter</Button>
                 </div>
 
                 <img src={Desktop} alt="Image de site web" />

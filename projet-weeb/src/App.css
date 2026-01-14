@@ -35,17 +35,12 @@
 }
 
 .home-container section {
-    padding: 24px 24px;
+    padding: 24px;
 }
 
 body {
     background-color: var(--primary-bg);
     min-height: 100vh;
-}
-
-h1 {
-    font-size: 72px;
-    font-weight: 800;
 }
 
 .secondary-text {
@@ -87,6 +82,11 @@ h1 {
     gap: 20px;
 }
 
+.home-hero h1 {
+    font-size: 72px;
+    font-weight: 800;
+}
+
 .home-btn-container {
     display: flex;
     justify-content: center;
@@ -101,7 +101,7 @@ h1 {
     gap: 60px;
 }
 
-.home-entreprise h1 {
+.home-entreprise h2,.home-ressources h2, .home-ecosystem h2 {
     font-size: 56px;
     font-weight: 800;
 }
@@ -147,4 +147,34 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media only screen and (max-width:980px){
+    .home-entreprise h2,.home-ressources h2, .home-ecosystem h2 {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width:840px){
+    .home-entreprise-list img {
+        height: 28px;
+        width: auto;
+    }
+
+    .home-container {
+        gap: 50px;
+    }
+
+    .home-container section {
+        padding: 12px 24px;
+    }
+
+    .home-hero h1 {
+        font-size: 68px;
+        font-weight: 800;
+    }
+}
+
+@media only screen and (max-width:748px){
+
 }

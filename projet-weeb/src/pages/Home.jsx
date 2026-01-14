@@ -33,7 +33,7 @@ const Home = () => {
 
             <section className="home-entreprise">
 
-                <h1>Ils nous font confiance</h1>
+                <h2>Ils nous font confiance</h2>
 
                 <div className="home-entreprise-list">
                     <img src={SmartFinder} alt="" />
@@ -49,9 +49,9 @@ const Home = () => {
 
                 <div>
 
-                    <h2 className="upper-text">Des ressources pour tous les niveaux</h2>
+                    <p className="upper-text">Des ressources pour tous les niveaux</p>
 
-                    <h1><span className="secondary-text">Apprenez </span> et <span className="secondary-text">progressez</span></h1>
+                    <h2><span className="secondary-text">Apprenez </span> et <span className="secondary-text">progressez</span></h2>
 
                     <p>Que vous débutiez en développement web ou que vous soyez un expert cherchant à approfondir vos connaissances, nous vous proposons des tutoriels, guides et bonnes pratiques pour apprendre efficacement.</p>
 
@@ -75,9 +75,9 @@ const Home = () => {
                 
                 <div>
 
-                    <h2 className="upper-text">Le web, un écosystème en constante évolution</h2>
+                    <p className="upper-text">Le web, un écosystème en constante évolution</p>
 
-                    <h1>Restez informé des dernières <span className="secondary-text">tendances</span></h1>
+                    <h2>Restez informé des dernières <span className="secondary-text">tendances</span></h2>
 
                     <p>Chaque semaine, nous analysons les nouveautés du web : frameworks émergents, bonnes pratiques SEO, accessibilité, et bien plus encore. Ne manquez aucune actualité du digital !</p>
 

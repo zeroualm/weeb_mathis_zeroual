@@ -48,7 +48,7 @@ body {
     text-transform: uppercase;
 }
 
-.home-container, .contact-container {
+.home-container, .contact-container, .login-container {
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -218,6 +218,27 @@ body {
     .contact-form-grid textarea:focus::placeholder {
         opacity: 0;
     }
+
+/* Login */
+
+.login-container section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.login-container section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    max-width: 900px; 
+    margin: 0 auto;
+    gap: 60px;
+}
 
 /* Responsive */
 

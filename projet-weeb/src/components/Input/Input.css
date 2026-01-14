@@ -1,4 +1,4 @@
-.contact-form-grid input {
+input {
     text-align: center;
     padding: 12px;
     font-size: 16px;
@@ -9,16 +9,16 @@
     font-size: 25px;
 }
 
-.contact-form-grid input:focus{
+input:focus{
     outline: none;
     border: 2px solid var(--secondary-text);
 }
 
-.contact-form-grid input::placeholder {
+input::placeholder {
     color: var(--secondary-text);
     opacity: 1;
 }
 
-.contact-form-grid input:focus::placeholder {
+input:focus::placeholder {
     opacity: 0;
 }

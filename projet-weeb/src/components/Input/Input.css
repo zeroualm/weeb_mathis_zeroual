@@ -1,0 +1,24 @@
+.contact-form-grid input {
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    border: 2px solid transparent;
+    border-bottom: 2px solid var(--secondary-text);
+    font-size: 25px;
+}
+
+.contact-form-grid input:focus{
+    outline: none;
+    border: 2px solid var(--secondary-text);
+}
+
+.contact-form-grid input::placeholder {
+    color: var(--secondary-text);
+    opacity: 1;
+}
+
+.contact-form-grid input:focus::placeholder {
+    opacity: 0;
+}

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 import Button from "../components/Button/Button";

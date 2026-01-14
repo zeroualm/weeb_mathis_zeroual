@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
+import Input from '../components/Input/Input';
 
 const Contact = () => {
     return (
@@ -17,11 +18,12 @@ const Contact = () => {
                 <form action="">
         
                     <div className="contact-form-grid">
-                        <input type="text" name="nom" id="nom" placeholder="Nom" />
-                        <input type="text" name="prenom" id="prenom" placeholder="Prénom" />
 
-                        <input type="text" name="telephone" id="telephone" placeholder="Téléphone" />
-                        <input type="email" name="email" id="email" placeholder="Email" />
+                        <Input type="text" name="nom" id="nom" placeholder="Nom" />
+                        <Input type="text" name="prenom" id="prenom" placeholder="Prénom" />
+
+                        <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" />
+                        <Input type="email" name="email" id="email" placeholder="Email" />
 
                         <textarea name="message" id="message" placeholder="Message" className="contact-message-input"/>
                     </div>

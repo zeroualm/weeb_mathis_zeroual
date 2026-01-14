@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import './Button.css'
 
-const Button = (props) => {
-    return <button className={props.type}>{props.label}</button>;
-}
+const Button = ({ children, variant = 'primary', className = '', ...props }) => {
+    
+    const classes = `btn btn-${variant} ${className}`;
+
+    return (
+        <button className={classes} {...props}>
+            {children}
+        </button>
+    );
+};
 
 export default Button

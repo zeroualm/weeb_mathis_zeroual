@@ -13,7 +13,7 @@ const Header = () => {
 
             <div>
                 <Link to="/login">Se connecter</Link>
-                <Button type="btn-primary" label="Nous rejoindre"/>
+                <Button variant="primary">Nous rejoindre</Button>
             </div>
 
         </nav>

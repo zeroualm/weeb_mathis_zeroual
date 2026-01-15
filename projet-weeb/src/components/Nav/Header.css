@@ -48,11 +48,52 @@ nav button.btn-primary {
     font-weight: 400;
 }
 
+.hamburger {
+    display: none;
+    background-color: var(--secondary-text);
+    fill: white;
+    line-height: 0.5;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.header-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left :0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    background-color: var(--primary-bg);
+    border-bottom: 2px solid var(--secondary-text);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
 @media only screen and (max-width:748px){
 
     nav {
         border-radius: 0px 0px 20px 20px;
         margin-top: 0px;
+        position: relative;
+    }
+
+    .hamburger {
+        display:block;
+    }
+
+    .header-link {
+        display: none;
     }
 
 }

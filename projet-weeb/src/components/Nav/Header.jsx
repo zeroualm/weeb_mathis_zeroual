@@ -8,7 +8,6 @@ const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // 3. Fonction pour basculer l'état
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };

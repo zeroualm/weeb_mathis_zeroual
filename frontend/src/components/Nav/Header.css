@@ -1,0 +1,101 @@
+/* CSS du composant Header */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 15px 0px #00000012, 0px 25px 50px -12px #00000040;
+    background: #FFFFFF0D;
+    border-radius: 20px;
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;   
+    max-width: 1000px;
+    padding: 0 56px;
+    margin : 0 auto;
+    margin-top: 40px;
+}
+
+nav div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo a{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-text);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-text);
+}
+
+nav button.btn-primary {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.hamburger {
+    display: none;
+    background-color: var(--secondary-text);
+    fill: white;
+    line-height: 0.5;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.header-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left :0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    background-color: var(--primary-bg);
+    border-bottom: 2px solid var(--secondary-text);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width:748px){
+
+    nav {
+        border-radius: 0px 0px 20px 20px;
+        margin-top: 0px;
+        position: relative;
+    }
+
+    .hamburger {
+        display:block;
+    }
+
+    .header-link {
+        display: none;
+    }
+
+}

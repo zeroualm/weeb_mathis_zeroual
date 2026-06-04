@@ -3,17 +3,18 @@
 input {
     text-align: center;
     padding: 12px;
-    font-size: 16px;
     width: 100%;
     background: transparent;
     border: 2px solid transparent;
     border-bottom: 2px solid var(--secondary-text);
     font-size: 25px;
+    transition: all 0.3s ease;
 }
 
 input:focus{
     outline: none;
     border: 2px solid var(--secondary-text);
+    transform: translateY(-2px);
 }
 
 input::placeholder {

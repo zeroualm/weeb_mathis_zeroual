@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Button from "../components/Button/Button";
 import { Link } from "react-router-dom";
 
-import Desktop from "../assets/Desktop.png"
+import Desktop from "../assets/Desktop.webp"
 import ArtVenue from "../assets/ArtVenue.svg"
 import Shells from "../assets/Shells.svg"
 import SmartFinder from "../assets/SmartFinder.svg"

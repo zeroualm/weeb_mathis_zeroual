@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import App from './App.jsx' 
+import PrivateRoute from './PrivateRoute.jsx'
 
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                element: <Home />,
+                element: <PrivateRoute><Home /></PrivateRoute>,
             },
             {
                 path: "login", 
@@ -24,8 +25,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "contact",
-                element: <Contact />,
+                element: <PrivateRoute><Contact /></PrivateRoute>,
             },
+       
         ],
     },
 ]);

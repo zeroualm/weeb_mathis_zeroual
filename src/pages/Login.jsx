@@ -1,8 +1,32 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import Input from '../components/Input/Input';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../api";
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const handleLogin = async () => {
+        try {
+            const res = await api.post(
+                "users/token/",
+                { email, password },
+                { withCredentials: true }
+            );
+
+            sessionStorage.setItem("access", res.data.access);
+            navigate("/");
+        } catch (err) {
+            alert("Erreur de connexion: " + err);
+        }
+    };
+
+
     return (
         <div className="login-container">
 
@@ -12,9 +36,13 @@ const Login = () => {
 
                 <div>
 
-                    <form action="">
-                        <Input type="text" name="email" id="email" placeholder="Adresse e-mail" />
-                        <Input type="password" name="password" id="password" placeholder="Mot de passe" />
+                    <form action="" onSubmit={(e) => {
+                        e.preventDefault();
+                        handleLogin();
+                    }}>
+
+                        <Input type="text" name="email" id="email" placeholder="Adresse e-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input type="password" name="password" id="password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                         <Button variant="primary">Se connecter</Button>
                     </form>

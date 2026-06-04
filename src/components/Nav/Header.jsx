@@ -16,7 +16,7 @@ const Header = () => {
         <nav>
             <div>
                 <span className="header-logo"><Link to="/">weeb</Link></span>
-                <Link to="/" className="header-link">À propos</Link>
+                <Link to="/blog" className="header-link">Blog</Link>
                 <Link to="/contact" className="header-link">Contact</Link>
             </div>
 
@@ -30,7 +30,7 @@ const Header = () => {
             </div>
 
             <div className={`header-menu ${isMenuOpen ? "header-open" : ""}`}>
-                <Link to="/" onClick={toggleMenu}>À propos</Link>
+                <Link to="/blog" onClick={toggleMenu}>Blog</Link>
                 <Link to="/contact" onClick={toggleMenu}>Contact</Link>
                 <Link to="/login" onClick={toggleMenu}>Se connecter</Link>
                 <Button variant="primary" onClick={toggleMenu}>Nous rejoindre</Button>

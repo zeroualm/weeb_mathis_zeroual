@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute.jsx'
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Contact from "./pages/Contact.jsx";
+import Blog from "./pages/Blog.jsx";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "contact",
-                element: <PrivateRoute><Contact /></PrivateRoute>,
+                element: <Contact />,
+            },
+            {
+                path: "blog",
+                element: <Blog />,
             },
        
         ],

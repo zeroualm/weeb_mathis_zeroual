@@ -15,8 +15,12 @@
     --btn-purple : #9333EA;
     --footer-header :#94A3B8;
     --footer-link :#0F172A;
-    --form-bg :#C084FC1A;
-    --form-border: #AF52DE
+    --secondary-bg :#C084FC1A;
+    --secondary-bg-hover: #C084FC33;
+    --secondary-border: #AF52DE;
+    --secondary-border-hover: #AF52DE99;
+    --secondary-shadow:#9333ea33;
+
 }
 
 #root {
@@ -48,14 +52,14 @@ body {
     text-transform: uppercase;
 }
 
-.home-container, .contact-container, .login-container {
+.home-container, .contact-container, .login-container, .blog-container {
     display: flex;
     flex-direction: column;
     gap: 80px;
     align-items: center;
     width: 100%;
     max-width: 1280px;
-    margin: 0 auto;
+    margin-inline: auto;
     padding: 30px 20px;
     text-align: center;
 }
@@ -173,12 +177,12 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--form-bg);
-        border: 2px solid var(--form-border);
+        background-color: var(--secondary-bg);
+        border: 2px solid var(--secondary-border);
         border-radius: 20px;
         padding: 30px;
         max-width: 800px; 
-        margin: 0 auto;
+        margin-inline: auto;
     }
 
     .contact-form-grid {
@@ -198,11 +202,8 @@ body {
         border: 2px solid transparent;
         border-bottom: 2px solid var(--secondary-text);
         font-size: 25px;
-    }
-
-    .contact-form-grid textarea {
         grid-column: span 2;
-        resize: vertical;
+        resize: vertical
     }
 
     .contact-form-grid textarea:focus {
@@ -236,8 +237,36 @@ body {
     align-items: center;
     padding: 30px;
     max-width: 900px; 
-    margin: 0 auto;
+    margin-inline: auto;
     gap: 60px;
+}
+
+/* Blog */
+
+.blog-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.blog-hero h1 {
+    font-size: 72px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.blog-hero p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.blog-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
 }
 
 /* Responsive */
@@ -283,6 +312,27 @@ body {
     }
 
     .contact-hero p {
-        width: 550px;
+        max-width: 550px;
+    }
+
+    .blog-hero h1 {
+        font-size: 48px;
+    }
+
+    .blog-articles {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .article-card {
+        padding: 20px;
+    }
+
+    .article-title {
+        font-size: 20px;
+    }
+
+    .article-content {
+        font-size: 15px;
     }
 }

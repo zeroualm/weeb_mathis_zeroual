@@ -15,6 +15,7 @@ import ArticleDetails from "./pages/ArticleDetails.jsx";
 import Register from "./pages/Signup.jsx";
 import ResetPwdRequest from "./pages/ResetPwdRequest.jsx";
 import Signup from './pages/Signup.jsx'
+import CreateArticle from './pages/CreateArticle.jsx'
 
 const router = createBrowserRouter([
     {
@@ -53,8 +54,12 @@ const router = createBrowserRouter([
             {
                 path: "article/:id",
                 element: <ArticleDetails />,
+            },
+            {
+                path: "create-article",
+                element: <PrivateRoute><CreateArticle /></PrivateRoute>,
             }
-       
+
         ],
     },
 ]);

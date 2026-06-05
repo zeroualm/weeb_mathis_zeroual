@@ -48,29 +48,6 @@ const Contact = () => {
         }
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        switch (name) {
-            case "nom":
-                setNom(value);
-                break;
-            case "prenom":
-                setPrenom(value);
-                break;
-            case "telephone":
-                setTelephone(value);
-                break;
-            case "email":
-                setEmail(value);
-                break;
-            case "message":
-                setMessage(value);
-                break;
-            default:
-                break;
-        }   
-    };
-
     return (
         <div className="contact-container">      
 
@@ -115,13 +92,13 @@ const Contact = () => {
                 
                             <div className="contact-form-grid">
 
-                                <Input type="text" name="nom" id="nom" placeholder="Nom" value={nom} onChange={handleInputChange} />
-                                <Input type="text" name="prenom" id="prenom" placeholder="Prénom" value={prenom} onChange={handleInputChange} />
+                                <Input type="text" name="nom" id="nom" placeholder="Nom" value={nom} onChange={(e) => setNom(e.target.value)} />
+                                <Input type="text" name="prenom" id="prenom" placeholder="Prénom" value={prenom} onChange={(e) => setPrenom(e.target.value)} />
 
-                                <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" value={telephone} onChange={handleInputChange} />
-                                <Input type="email" name="email" id="email" placeholder="Email" value={email} onChange={handleInputChange} />
+                                <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+                                <Input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-                                <textarea name="message" id="message" placeholder="Message" className="contact-message-input" value={message} onChange={handleInputChange} />
+                                <textarea name="message" id="message" placeholder="Message" className="contact-message-input" value={message} onChange={(e) => setMessage(e.target.value)} />
                             </div>
 
                             <div className="submit-btn-container">

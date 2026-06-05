@@ -57,7 +57,8 @@ body {
 .login-container, 
 .blog-container, 
 .article-container,
-.signup-container {
+.signup-container,
+.create-article-container {
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -298,7 +299,6 @@ body {
     background-size: 200% 200%;
 }
 
-
 /* Blog */
 
 .blog-hero {
@@ -325,6 +325,63 @@ body {
     width: 100%;
     max-width: 1200px;
     margin-inline: auto;
+}
+
+/* Create Article */
+
+.create-article-hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.create-article-hero form {
+    width: 100%; /* Ajoute cette ligne */
+    max-width: 1200px; /* Ajoute cette ligne */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--secondary-bg);
+    border: 2px solid var(--secondary-border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-inline: auto;
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--secondary-bg-hover) 100%);
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+.article-content-input {
+    text-align: left;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    border: 2px solid transparent;
+    border-bottom: 2px solid var(--secondary-text);
+    font-size: 24px;
+    grid-column: span 2;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 52px;
+    max-height: 200px;
+}
+
+.article-content-input:focus {
+    outline: none;
+    border: 2px solid var(--secondary-text);
+}
+
+.article-content-input {
+    color: var(--secondary-text);
+    opacity: 1;
+}
+
+.article-content-input:focus::placeholder {
+    opacity: 0;
 }
 
 /* Article Details */

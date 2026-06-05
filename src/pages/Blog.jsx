@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Article from "../components/Article/Article";
+import Button from "../components/Button/Button";
 
 const Blog = () => {
 
@@ -51,6 +52,8 @@ const Blog = () => {
                 <h1>Consulter nos articles</h1>
 
                 <p>Découvrez nos dernières publications et restez informés des dernières actualités.</p>
+
+                <Link to="/create-article" className="header-link">Créer un article</Link>   
 
             </section>
             

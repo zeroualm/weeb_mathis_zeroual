@@ -11,10 +11,6 @@ const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const token = sessionStorage.getItem("access");
-
-    console.log("Token dans Header:", token); // Debug: Affiche le token dans la console
-
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -28,7 +24,7 @@ const Header = () => {
             </div>
 
             <div>
-                {token ? (
+                {isLogged ? (
                     <>
                         <Link to="/profile" className="header-link">Mon profil</Link>   
                         <Button variant="primary" className="header-link"><Link to="/logout">Se déconnecter</Link></Button>

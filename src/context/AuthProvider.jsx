@@ -9,14 +9,12 @@ export const AuthProvider = ({ children }) => {
     // Fonction login
     const login = (accessToken, refreshToken) => {
         sessionStorage.setItem("access", accessToken);
-        sessionStorage.setItem("refresh", refreshToken);
         setIsLogged(true);
     };
 
     // Fonction logout
     const logout = () => {
         sessionStorage.removeItem("access");
-        sessionStorage.removeItem("refresh");
         setIsLogged(false);
     };
 

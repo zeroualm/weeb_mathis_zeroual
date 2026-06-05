@@ -13,8 +13,12 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const [error,setError] = useState(null)
 
     const handleLogin = async () => {
+
+        setError(null);
+
         try {
             const res = await api.post(
                 "users/token/",
@@ -24,7 +28,19 @@ const Login = () => {
             login(res.data.access, res.data.refresh);
             navigate("/");
         } catch (err) {
-            alert("Erreur de connexion: " + err);
+            if (err.response && err.response.status === 404) {
+                console.log(err.response.data);
+                setError("Erreur 404");
+            }
+            else {
+                console.error("--- ERROR FETCHING DATA ---");
+                console.error(err.response);
+                if (err.response && err.response.data) {
+                    setError(JSON.stringify(err.response.data)); 
+                } else {
+                    setError(err.message); 
+                }
+            }
         }
     };
 
@@ -51,9 +67,17 @@ const Login = () => {
 
                 </div>
                 
-                <Link to="/login">Mot de passe oublié ?</Link>
+                <Link to="/reset-password">Mot de passe oublié ?</Link>
 
-                <p>Vous n’avez pas de compte ? Vous pouvez en <Link to="/login">créer un</Link></p>
+                <p>Vous n’avez pas de compte ? Vous pouvez en <Link to="/signup">créer un</Link></p>
+
+                {error ? (
+                    <>
+                        <h1>Une erreur est survenue</h1>
+
+                        <p>{error.message}</p>
+                    </>
+                ) : null}
  
             </section>
 

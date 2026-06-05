@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Article from "../components/Article/Article";
+import Button from "../components/Button/Button";
 
 const Blog = () => {
 
@@ -52,12 +53,14 @@ const Blog = () => {
 
                 <p>Découvrez nos dernières publications et restez informés des dernières actualités.</p>
 
+                <Link to="/create-article" className="header-link">Créer un article</Link>   
+
             </section>
             
-           <section className="blog-articles">
+           <section className="blog-articles" onClick={() => navigate("/article/1")}>
 
                 {articles.map((article) => (
-                    <Article key={article.id} title={article.title} content={article.content} date={article.created_at} />
+                    <Article id={article.id} title={article.title} content={article.content} date={article.created_at} />
                 ))}
 
             </section>

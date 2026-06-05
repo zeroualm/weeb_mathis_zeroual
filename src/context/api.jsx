@@ -29,7 +29,6 @@ api.interceptors.response.use(
         // Si c'était une requête refresh qui avait échoué, on coupe tout sans reessayer
         if (originalRequest?.url?.includes("users/token/refresh/")) {
             sessionStorage.removeItem("access");
-            sessionStorage.removeItem("refresh"); // MODIFICATION: On nettoie bien les deux
             window.location.href = "/login";
             return Promise.reject(error);
         }
@@ -39,20 +38,11 @@ api.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-                const currentRefreshToken = sessionStorage.getItem("refresh");
 
-                const res = await api.post(
-                    "users/token/refresh/",
-                    { refresh: currentRefreshToken },
-                    { withCredentials: true } 
-                );
+                const res = await api.post("users/token/refresh/");
 
-                // Sauvegarde des tokens
+                // Sauvegarde du nouvel access token
                 sessionStorage.setItem("access", res.data.access);
-                if (res.data.refresh) {
-                    sessionStorage.setItem("refresh", res.data.refresh);
-                }
-
                 // Met à jour le header de la requête initiale échouée
                 originalRequest.headers.Authorization = `Bearer ${res.data.access}`;
 
@@ -61,7 +51,6 @@ api.interceptors.response.use(
 
             } catch (refreshError) {
                 sessionStorage.removeItem("access");
-                sessionStorage.removeItem("refresh");
                 window.location.href = "/login";
                 return Promise.reject(refreshError);
             }

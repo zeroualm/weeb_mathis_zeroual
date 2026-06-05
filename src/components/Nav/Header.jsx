@@ -6,8 +6,8 @@ import Button from "../Button/Button";
 import { useAuth } from "../../context/AuthProvider";
 
 const Header = () => {
-
-    const isLogged = useAuth();
+    
+    const { isLogged } = useAuth();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -45,14 +45,21 @@ const Header = () => {
             <div className={`header-menu ${isMenuOpen ? "header-open" : ""}`}>
                 <Link to="/blog" onClick={toggleMenu}>Blog</Link>
                 <Link to="/contact" onClick={toggleMenu}>Contact</Link>
-                <Link to="/login" onClick={toggleMenu}>Se connecter</Link>
-                <Button variant="primary" onClick={toggleMenu}>Nous rejoindre</Button>
+                {isLogged ? (
+                    <>
+                        <Link to="/profile" className="header-link" onClick={toggleMenu}>Mon profil</Link>
+                        <Link to="/logout" className="header-link" onClick={toggleMenu}>Se déconnecter</Link>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login" className="header-link" onClick={toggleMenu}>Se connecter</Link>
+                        <Link to="/register" className="header-link" onClick={toggleMenu}>Nous rejoindre</Link>
+                    </>
+                )}
             </div>
 
         </nav>
     )
 }
 
-export default Header
-
-
+export default Header;

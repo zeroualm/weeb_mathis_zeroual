@@ -11,6 +11,7 @@ import Login from "./pages/Login.jsx";
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
 import Logout from "./pages/Logout.jsx";
+import ArticleDetails from "./pages/ArticleDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
                 path: "blog",
                 element: <Blog />,
             },
+            {
+                path: "article/:id",
+                element: <ArticleDetails />,
+            }
        
         ],
     },

@@ -54,10 +54,10 @@ const Blog = () => {
 
             </section>
             
-           <section className="blog-articles">
+           <section className="blog-articles" onClick={() => navigate("/article/1")}>
 
                 {articles.map((article) => (
-                    <Article key={article.id} title={article.title} content={article.content} date={article.created_at} />
+                    <Article id={article.id} title={article.title} content={article.content} date={article.created_at} />
                 ))}
 
             </section>

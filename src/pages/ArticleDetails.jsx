@@ -50,15 +50,20 @@ const ArticleDetails = () => {
 
             <section className="article-hero">
 
-                <h1>Vous consulter l'article : {article.title}</h1>
+                <h1>{article.title}</h1>
 
             </section>
             
            <section className="article-content">
 
-                <h2>{article.title}</h2>
-                <p>{article.content}</p>
-                <span className="article-date">Publié le {new Date(article.created_at).toLocaleString('fr-FR')}</span>
+                <div className="article-description">
+                    <p>Auteur : {article.author} John Doe</p>
+                    <span className="secondary-text">Publié le {new Date(article.created_at).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
+                </div>
+
+                <div className="article-body">
+                    <p>{article.content}</p>
+                </div>  
 
             </section>
 

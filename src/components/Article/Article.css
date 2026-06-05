@@ -62,8 +62,12 @@
     flex-grow: 1;
 }
 
-.article-date {
-    font-size: 14px;
-    color: var(--secondary-text);
-    margin-top: auto;
+@media only screen and (max-width: 748px) {
+    .article-card {
+        padding: 20px;
+    }
+
+    .article-card-content {
+        font-size: 15px;
+    }
 }

@@ -32,6 +32,14 @@ const router = createBrowserRouter([
                 element: <Logout />,
             },
             {
+                path: "register",
+                element: <Register />,
+            },
+            {
+                path: "reset-password",
+                element: <ResetPwdRequest />,
+            },
+            {
                 path: "contact",
                 element: <Contact />,
             },

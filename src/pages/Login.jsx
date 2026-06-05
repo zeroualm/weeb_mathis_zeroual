@@ -51,9 +51,9 @@ const Login = () => {
 
                 </div>
                 
-                <Link to="/login">Mot de passe oublié ?</Link>
+                <Link to="/reset-password">Mot de passe oublié ?</Link>
 
-                <p>Vous n’avez pas de compte ? Vous pouvez en <Link to="/login">créer un</Link></p>
+                <p>Vous n’avez pas de compte ? Vous pouvez en <Link to="/register">créer un</Link></p>
  
             </section>
 

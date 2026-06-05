@@ -1,16 +1,48 @@
-# React + Vite
+# Projet Weeb- Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Frontend React avec Vite pour consommer l'API Django sécurisée avec JWT.  
+Permet de se connecter, afficher un dashboard et tester les endpoints sécurisés.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
+- React 19+
+- Vite 7+
+- Axios
+- react-router-dom
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation
 
-## Expanding the ESLint configuration
+1. **Cloner le projet**
+```bash
+git clone https://github.com/zeroualm/weeb_mathis_zeroual
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Installer les dépendances**
+```bash
+npm install
+```
+
+3. Lancer le serveur
+```bash
+npm run dev
+```
+
+---
+
+## Fonctionnalités
+
+- Page /login : connexion avec email et mot de passe
+- Page /blog : accès aux articles
+- Page /home : accès aux endpoints sécurisés
+
+---
+
+## Gestion des tokens
+
+- access_token stocké en sessionStorage
+- refresh_token géré côté serveur via HttpOnly cookie
+- Les requêtes API renouvellent automatiquement l’access_token si expiré

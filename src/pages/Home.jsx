@@ -1,8 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
 
 import Button from "../components/Button/Button";
+import { Link } from "react-router-dom";
 
-import Desktop from "../assets/Desktop.png"
+import Desktop from "../assets/Desktop.webp"
 import ArtVenue from "../assets/ArtVenue.svg"
 import Shells from "../assets/Shells.svg"
 import SmartFinder from "../assets/SmartFinder.svg"
@@ -22,7 +23,7 @@ const Home = () => {
                 <p>Le monde du web évolue constamment, et nous sommes là pour vous guider à travers ses tendances, technologies et meilleures pratiques. Que vous soyez développeur, designer ou passionné du digital, notre blog vous offre du contenu de qualité pour rester à la pointe.</p>
   
                 <div className="home-btn-container">
-                    <Button variant="primary"> Découvrir les articles</Button>
+                    <Button variant="primary"> <Link to="/blog" style={{ textDecoration: 'none', color: 'inherit' }}>Découvrir les articles</Link> </Button>
                     
                     <Button variant="secondary">S'abonner à la newsletter</Button>
                 </div>
@@ -81,7 +82,9 @@ const Home = () => {
 
                     <p>Chaque semaine, nous analysons les nouveautés du web : frameworks émergents, bonnes pratiques SEO, accessibilité, et bien plus encore. Ne manquez aucune actualité du digital !</p>
 
-                    <p>Lire les articles récents <FaArrowRight /></p> 
+                    <Link to="/blog" >
+                        Lire les articles récents <FaArrowRight />
+                    </Link>
 
                 </div>
                 

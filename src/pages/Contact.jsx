@@ -1,39 +1,140 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import Input from '../components/Input/Input';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Contact = () => {
-    return (
-        <div className="contact-container">
 
-            <section className="contact-hero">
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [isSent, setIsSent] = useState(false);
 
-                <h1>Votre avis compte !</h1>
+    const [nom, setNom] = useState("");
+    const [prenom, setPrenom] = useState("");
+    const [telephone, setTelephone] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState(""); 
 
-                <p>Votre retour est essentiel pour nous améliorer ! Partagez votre expérience, dites-nous ce que vous aimez et ce que nous pourrions améliorer. Vos suggestions nous aident à faire de ce blog une ressource toujours plus utile et enrichissante. </p>
+    const djangoApiUrlContact = "http://127.0.0.1:8000/contact/"
 
-            </section>
+    const handleSubmit = async () => {
+        try {
+            setIsLoading(true);
+            console.log("Envoie du messages en cours ...")
+            const response = await axios.post(djangoApiUrlContact, {
+                last_name: nom,
+                first_name: prenom,
+                phone_number: telephone,
+                email: email,
+                message: message
+            });
+            console.log("Envoie du message terminé")
+            setError(null)
+            setIsSent(true)
+
+        } catch (err){
+            if (err.response && err.response.status === 404) {
+                console.log("Erreur 404 : Aucune catégorie");
+            }
+            else {
+                console.error("--- ERROR ---");
+                console.error(err);
+                setError(err);
+            }
             
-           <section className="contact-form">
-                <form action="">
-        
-                    <div className="contact-form-grid">
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-                        <Input type="text" name="nom" id="nom" placeholder="Nom" />
-                        <Input type="text" name="prenom" id="prenom" placeholder="Prénom" />
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        switch (name) {
+            case "nom":
+                setNom(value);
+                break;
+            case "prenom":
+                setPrenom(value);
+                break;
+            case "telephone":
+                setTelephone(value);
+                break;
+            case "email":
+                setEmail(value);
+                break;
+            case "message":
+                setMessage(value);
+                break;
+            default:
+                break;
+        }   
+    };
 
-                        <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" />
-                        <Input type="email" name="email" id="email" placeholder="Email" />
+    return (
+        <div className="contact-container">      
 
-                        <textarea name="message" id="message" placeholder="Message" className="contact-message-input"/>
-                    </div>
+            {isSent ? (
+                <div className="contact-success-message">
+                    <h2>Merci pour votre message !</h2>
+                    <p>Nous vous répondrons dans les plus brefs délais.</p>
 
-                    <div className="submit-btn-container">
-                        <Button variant="primary">Contact</Button>
-                    </div>
+                    <h2>Résumé de votre message :</h2>
+                    <p><strong>Nom :</strong> {nom}</p>
+                    <p><strong>Prénom :</strong> {prenom}</p>
+                    <p><strong>Téléphone :</strong> {telephone}</p>
+                    <p><strong>Email :</strong> {email}</p>
+                    <p><strong>Message :</strong> {message}</p>
 
-                </form>
-            </section>
+                    <Link to="/">Retour à l'accueil</Link>
+                </div>
+            ) : null}
+
+            {isLoading ? (
+                <div className="contact-loading-message">
+                    <h2>Envoie du message en cours ...</h2>
+                </div>
+            ) : null
+            }
+
+            {error ? (
+                <div className="contact-error-message">
+                    <h2>Une erreur est survenue lors de l'envoie du message. Veuillez réessayer plus tard.</h2>
+                </div>
+            ) : null
+            }
+
+            {!isSent && !isLoading && !error ? (
+                <>
+                
+                    <section className="contact-form">
+                        <form action="" onSubmit={(e) => {
+                                e.preventDefault();
+                                handleSubmit();
+                            }}>
+                
+                            <div className="contact-form-grid">
+
+                                <Input type="text" name="nom" id="nom" placeholder="Nom" value={nom} onChange={handleInputChange} />
+                                <Input type="text" name="prenom" id="prenom" placeholder="Prénom" value={prenom} onChange={handleInputChange} />
+
+                                <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" value={telephone} onChange={handleInputChange} />
+                                <Input type="email" name="email" id="email" placeholder="Email" value={email} onChange={handleInputChange} />
+
+                                <textarea name="message" id="message" placeholder="Message" className="contact-message-input" value={message} onChange={handleInputChange} />
+                            </div>
+
+                            <div className="submit-btn-container">
+                                <Button variant="primary">Contact</Button>
+                            </div>
+
+                        </form>
+                    </section>
+                </>
+            ) : null
+            }
+
+            
 
         </div>
     );

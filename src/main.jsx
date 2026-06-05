@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { AuthProvider } from './context/AuthProvider.jsx'
 
 import App from './App.jsx' 
 import PrivateRoute from './PrivateRoute.jsx'
@@ -9,6 +10,7 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
+import Logout from "./pages/Logout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
                 element: <Login />,
             },
             {
+                path: "logout",
+                element: <Logout />,
+            },
+            {
                 path: "contact",
                 element: <Contact />,
             },
@@ -39,6 +45,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <AuthProvider>
+            <RouterProvider router={router} />
+        </AuthProvider>
     </StrictMode>,
 )

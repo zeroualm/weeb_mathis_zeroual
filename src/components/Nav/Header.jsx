@@ -3,10 +3,17 @@ import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { useState } from "react";
 import './Header.css'
 import Button from "../Button/Button";
+import { useAuth } from "../../context/AuthProvider";
 
 const Header = () => {
 
+    const isLogged = useAuth();
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const token = sessionStorage.getItem("access");
+
+    console.log("Token dans Header:", token); // Debug: Affiche le token dans la console
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -21,8 +28,18 @@ const Header = () => {
             </div>
 
             <div>
-                <Link to="/login" className="header-link">Se connecter</Link>
-                <Button variant="primary" className="header-link">Nous rejoindre</Button>
+                {token ? (
+                    <>
+                        <Link to="/profile" className="header-link">Mon profil</Link>   
+                        <Button variant="primary" className="header-link"><Link to="/logout">Se déconnecter</Link></Button>
+                    </>
+                ) : ( 
+                    <>
+                        <Link to="/login" className="header-link">Se connecter</Link>
+                        <Button variant="primary" className="header-link">Nous rejoindre</Button>
+                    </>
+                )}
+                
             </div>
 
             <div className="hamburger" onClick={toggleMenu}>

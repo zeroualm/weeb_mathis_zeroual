@@ -3,9 +3,12 @@ import Button from "../components/Button/Button";
 import Input from '../components/Input/Input';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../api";
+import api from "../context/api";
+import { useAuth } from "../context/AuthProvider";
 
 const Login = () => {
+
+    const {login} = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,8 +21,7 @@ const Login = () => {
                 { email, password },
                 { withCredentials: true }
             );
-
-            sessionStorage.setItem("access", res.data.access);
+            login(res.data.access, res.data.refresh);
             navigate("/");
         } catch (err) {
             alert("Erreur de connexion: " + err);

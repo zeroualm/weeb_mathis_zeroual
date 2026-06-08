@@ -1,0 +1,35 @@
+/* Article Details */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    margin-inline: auto;
+    padding: 30px 20px;
+    border: 2px solid var(--secondary-border);
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--secondary-bg-hover) 100%);
+}
+
+.hero, .description {
+    width: 100%;
+    border-bottom: 2px solid var(--secondary-border);
+    padding-bottom: 20px;
+    border-bottom-width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+}

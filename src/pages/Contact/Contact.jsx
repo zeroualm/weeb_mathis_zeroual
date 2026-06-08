@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../components/Button/Button";
-import Input from '../components/Input/Input';
+import Button from "../../components/Button/Button";
+import Input from '../../components/Input/Input';
 import { useState, useEffect } from "react";
-import api from "../context/api";
+import api from "../../context/api";
+import styles from "./Contact.module.css"
 
 const Contact = () => {
 
@@ -49,10 +50,18 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-container">      
+        <div className="page-container">
+
+            <section className={styles.hero}>
+
+                <h1>Votre avis compte !</h1>
+
+                <p>Votre retour est essentiel pour nous améliorer ! Partagez votre expérience, dites-nous ce que vous aimez et ce que nous pourrions améliorer. Vos suggestions nous aident à faire de ce blog une ressource toujours plus utile et enrichissante. </p>
+
+            </section>
 
             {isSent ? (
-                <div className="contact-success-message">
+                <div className={styles.successMessage}>
                     <h2>Merci pour votre message !</h2>
                     <p>Nous vous répondrons dans les plus brefs délais.</p>
 
@@ -68,14 +77,14 @@ const Contact = () => {
             ) : null}
 
             {isLoading ? (
-                <div className="contact-loading-message">
+                <div className={styles.loadingMessage}>
                     <h2>Envoie du message en cours ...</h2>
                 </div>
             ) : null
             }
 
             {error ? (
-                <div className="contact-error-message">
+                <div className={styles.errorMessage}>
                     <h2>Une erreur est survenue lors de l'envoie du message. Veuillez réessayer plus tard.</h2>
                 </div>
             ) : null
@@ -84,13 +93,16 @@ const Contact = () => {
             {!isSent && !isLoading && !error ? (
                 <>
                 
-                    <section className="contact-form">
+                    <section className={styles.contactForm}>
+
+
+
                         <form action="" onSubmit={(e) => {
                                 e.preventDefault();
                                 handleSubmit();
                             }}>
                 
-                            <div className="contact-form-grid">
+                            <div className={styles.contactFormGrid}>
 
                                 <Input type="text" name="nom" id="nom" placeholder="Nom" value={nom} onChange={(e) => setNom(e.target.value)} />
                                 <Input type="text" name="prenom" id="prenom" placeholder="Prénom" value={prenom} onChange={(e) => setPrenom(e.target.value)} />
@@ -98,10 +110,10 @@ const Contact = () => {
                                 <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
                                 <Input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-                                <textarea name="message" id="message" placeholder="Message" className="contact-message-input" value={message} onChange={(e) => setMessage(e.target.value)} />
+                                <textarea name="message" id="message" placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
                             </div>
 
-                            <div className="submit-btn-container">
+                            <div className={styles.submitButton}>
                                 <Button variant="primary">Contact</Button>
                             </div>
 

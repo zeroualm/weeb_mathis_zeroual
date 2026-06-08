@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import api from "../context/api";
-import Input from "../components/Input/Input";
-import Button from "../components/Button/Button";
+import api from "../../context/api";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
+import styles from "./ResetPassword.module.css"
 
 const ResetPassword = () => {
 
@@ -54,7 +55,8 @@ const ResetPassword = () => {
 
     return (
 
-        <div className="article-container">
+        <div className="page-container">
+
             {error ? (
                     <>
                         <h1>Une erreur est survenue</h1>
@@ -63,7 +65,8 @@ const ResetPassword = () => {
                     </>
                 ) : null
             }
-            <section className="article-hero">
+            
+            <section className={styles.hero}>
                 <h1>Mot de passe oublié</h1>
                 <p>Entrez votre adresse e-mail pour recevoir les instructions de réinitialisation du mot de passe.</p>
 
@@ -72,7 +75,7 @@ const ResetPassword = () => {
                         handleResetPassword();
                     }}>
 
-                        <Input type="password" name="password" id="password"  placeholder="Mot de passe" value={password}  onChange={(e) => setPassword(e.target.value)} />
+                        <Input type="password" name="password" id="password" placeholder="Mot de passe" value={password}  onChange={(e) => setPassword(e.target.value)} />
 
                         <Button variant="primary">
                             Réinitialiser le mot de passe

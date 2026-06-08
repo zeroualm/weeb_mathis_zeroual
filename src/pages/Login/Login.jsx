@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import Button from "../components/Button/Button";
-import Input from '../components/Input/Input';
+import Button from "../../components/Button/Button";
+import Input from '../../components/Input/Input';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../context/api";
-import { useAuth } from "../context/AuthProvider";
+import api from "../../context/api";
+import { useAuth } from "../../context/AuthProvider";
+import styles from "./Login.module.css"
 
 const Login = () => {
 
@@ -46,9 +47,9 @@ const Login = () => {
 
 
     return (
-        <div className="login-container">
+        <div className="page-container">
 
-            <section>
+            <section className={styles.hero}>
 
                 <h1>Se connecter</h1>
 

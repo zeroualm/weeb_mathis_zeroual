@@ -1,28 +1,30 @@
 import { FaArrowRight } from "react-icons/fa";
 
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 
-import Desktop from "../assets/Desktop.webp"
-import ArtVenue from "../assets/ArtVenue.svg"
-import Shells from "../assets/Shells.svg"
-import SmartFinder from "../assets/SmartFinder.svg"
-import Waves from "../assets/Waves.svg"
-import Zoomerr from "../assets/Zoomerr.svg"
-import Shapes from "../assets/Shapes.svg"
+import Desktop from "../../assets/Desktop.webp"
+import ArtVenue from "../../assets/ArtVenue.svg"
+import Shells from "../../assets/Shells.svg"
+import SmartFinder from "../../assets/SmartFinder.svg"
+import Waves from "../../assets/Waves.svg"
+import Zoomerr from "../../assets/Zoomerr.svg"
+import Shapes from "../../assets/Shapes.svg"
+
+import styles from "./Home.module.css"
 
 const Home = () => {
     return (
-        <div className="home-container">
+        <div className={`page-container ${styles.container}`}>
 
-            <section className="home-hero">
+            <section className={styles.hero}>
 
                 <h1>Explorez le <span className="secondary-text">Web</span> sous toutes ses <span className="secondary-underline">facettes</span></h1>
 
 
                 <p>Le monde du web évolue constamment, et nous sommes là pour vous guider à travers ses tendances, technologies et meilleures pratiques. Que vous soyez développeur, designer ou passionné du digital, notre blog vous offre du contenu de qualité pour rester à la pointe.</p>
   
-                <div className="home-btn-container">
+                <div className={styles.btnContainer}>
                     <Button variant="primary"> <Link to="/blog" style={{ textDecoration: 'none', color: 'inherit' }}>Découvrir les articles</Link> </Button>
                     
                     <Button variant="secondary">S'abonner à la newsletter</Button>
@@ -32,11 +34,11 @@ const Home = () => {
 
             </section>
 
-            <section className="home-entreprise">
+            <section className={styles.entreprise}>
 
                 <h2>Ils nous font confiance</h2>
 
-                <div className="home-entreprise-list">
+                <div className={styles.entrepriseList}>
                     <img src={SmartFinder} alt="" />
                     <img src={Zoomerr} alt="" />
                     <img src={Shells} alt="" />
@@ -46,7 +48,7 @@ const Home = () => {
 
             </section>
 
-            <section className="home-ressources">
+            <section className={styles.ressources}>
 
                 <div>
 
@@ -68,7 +70,7 @@ const Home = () => {
 
             </section>
 
-            <section className="home-ecosystem">
+            <section className={styles.ecosystem}>
     
                 <div>
                     <img src={Shapes} alt="Formes géométriques" />

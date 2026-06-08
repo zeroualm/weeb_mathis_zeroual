@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import api from "../context/api";
-import Input from "../components/Input/Input";
-import Button from "../components/Button/Button";
+import api from "../../context/api";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
+import styles from "./Signup.module.css"
 
 const Signup = () => {
     
@@ -54,9 +55,9 @@ const Signup = () => {
     };
 
     return (
-        <div className="signup-container">
+        <div className="page-container">
 
-            <section className="signup-hero">
+            <section className={styles.hero}>
 
                 {isSent ? (
                     <>

@@ -12,10 +12,10 @@ import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
 import Logout from "./pages/Logout.jsx";
 import ArticleDetails from "./pages/ArticleDetails.jsx";
-import Register from "./pages/Signup.jsx";
-import ResetPwdRequest from "./pages/ResetPwdRequest.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Signup from './pages/Signup.jsx'
 import CreateArticle from './pages/CreateArticle.jsx'
+import ResetPassword from './pages/ResetPassword.jsx'
 
 const router = createBrowserRouter([
     {
@@ -40,8 +40,12 @@ const router = createBrowserRouter([
                 element: <Signup />,
             },
             {
+                path: "forgot-password",
+                element: <ForgotPassword />,
+            },
+            {
                 path: "reset-password",
-                element: <ResetPwdRequest />,
+                element: <ResetPassword />,
             },
             {
                 path: "contact",

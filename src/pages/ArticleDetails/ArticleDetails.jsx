@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import api from "../context/api";
+import api from "../../context/api";
+import styles from "./ArticleDetails.module.css"
 
 const ArticleDetails = () => {
 
@@ -44,22 +45,22 @@ const ArticleDetails = () => {
 
 
     return (
-        <div className="article-container">
+        <div className={`page-container ${styles.container}`}>
 
-            <section className="article-hero">
+            <section className={styles.hero}>
 
                 <h1>{article.title}</h1>
 
             </section>
             
-           <section className="article-content">
+           <section className={styles.content}>
 
-                <div className="article-description">
+                <div className={styles.description}>
                     <p>Auteur : {article.author} John Doe</p>
                     <span className="secondary-text">Publié le {new Date(article.created_at).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
                 </div>
 
-                <div className="article-body">
+                <div className={styles.body}>
                     <p>{article.content}</p>
                 </div>  
 

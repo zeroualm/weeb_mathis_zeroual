@@ -6,16 +6,16 @@ import { AuthProvider } from './context/AuthProvider.jsx'
 import App from './App.jsx' 
 import PrivateRoute from './PrivateRoute.jsx'
 
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import Contact from "./pages/Contact.jsx";
-import Blog from "./pages/Blog.jsx";
-import Logout from "./pages/Logout.jsx";
-import ArticleDetails from "./pages/ArticleDetails.jsx";
-import ForgotPassword from "./pages/ForgotPassword.jsx";
-import Signup from './pages/Signup.jsx'
-import CreateArticle from './pages/CreateArticle.jsx'
-import ResetPassword from './pages/ResetPassword.jsx'
+import Home from "./pages/Home/Home.jsx";
+import Login from "./pages/Login/Login.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
+import Logout from "./pages/Logout/Logout.jsx";
+import ArticleDetails from "./pages/ArticleDetails/ArticleDetails.jsx";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
+import Signup from './pages/Signup/Signup.jsx'
+import CreateArticle from './pages/CreateArticle/CreateArticle.jsx'
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 
 const router = createBrowserRouter([
     {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                element: <PrivateRoute><Home /></PrivateRoute>,
+                element: <Home />,
             },
             {
                 path: "login", 

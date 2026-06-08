@@ -1,6 +1,6 @@
-/* CSS du composant Footer */
+/* Footer.module.css */
 
-footer {
+.footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,32 +11,32 @@ footer {
     gap: 40px;
 }
 
-footer a {
+.footer a {
     text-decoration: none;
     color: var(--primary-bg);
     transition: color 0.3s ease;
 }
 
-footer a:hover {
+.footer a:hover {
     color: var(--btn-purple);
 }
 
-footer p {
+.footer p {
     color: var(--primary-bg);
 }
 
-.footer-logo {
+.logo {
     display: flex;
     align-items: center;
 }
 
-.footer-logo a {
+.logo a {
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-bg);
 }
 
-.footer-links {
+.links {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: 100%;
@@ -44,21 +44,21 @@ footer p {
     gap: 24px;
 }
 
-.footer-links div {
+.links div {
     display: flex;
     flex-direction: column;
     text-align: left;
     gap: 12px;
 }
 
-.footer-links div h3 {
+.links div h3 {
     color: var(--footer-header);
     font-size: 16px;
     margin-bottom: 8px;
     text-transform: uppercase;
 }
 
-.footer-media {
+.media {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -69,7 +69,7 @@ footer p {
     padding-top: 24px;
 }
 
-.footer-media-icons {
+.mediaIcons {
     display: flex;
     gap: 20px;
 }
@@ -86,9 +86,8 @@ footer p {
     color: var(--btn-purple);
 }
 
-@media only screen and (max-width:580px){
-
-    .footer-links {
+@media only screen and (max-width: 580px) {
+    .links {
         display: flex;
         flex-direction: column;
         align-items: flex-start; 
@@ -98,9 +97,8 @@ footer p {
         gap: 30px;
     }
 
-    .footer-media {
+    .media {
         flex-direction: column;
         gap: 30px;
     }
 }
-

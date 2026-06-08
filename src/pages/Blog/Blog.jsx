@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import api from "../context/api";
-import Article from "../components/Article/Article";
-import Button from "../components/Button/Button";
+import api from "../../context/api";
+import Article from "../../components/Article/Article";
+import Button from "../../components/Button/Button";
+import styles from "./Blog.module.css"
 
 const Blog = () => {
 
@@ -45,9 +46,9 @@ const Blog = () => {
     },[]);
 
     return (
-        <div className="blog-container">
+        <div className="page-container">
 
-            <section className="blog-hero">
+            <section className={styles.hero}>
 
                 <h1>Consulter nos articles</h1>
 
@@ -57,10 +58,10 @@ const Blog = () => {
 
             </section>
             
-           <section className="blog-articles" onClick={() => navigate("/article/1")}>
+           <section className={styles.articles} onClick={() => navigate("/article/1")}>
 
                 {articles.map((article) => (
-                    <Article id={article.id} title={article.title} content={article.content} date={article.created_at} />
+                    <Article key={article.id} title={article.title} content={article.content} date={article.created_at} />
                 ))}
 
             </section>

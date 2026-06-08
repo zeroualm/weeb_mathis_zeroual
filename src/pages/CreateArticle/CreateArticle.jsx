@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import api from "../context/api";
-import Input from "../components/Input/Input";
-import Button from "../components/Button/Button";
-import { useAuth } from "../context/AuthProvider";
+import api from "../../context/api";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
+import { useAuth } from "../../context/AuthProvider";
+
+import styles from "./CreateArticle.module.css"
 
 const CreateArticle = () => {
     
@@ -61,13 +63,15 @@ const CreateArticle = () => {
     };
 
     return (
-        <div className="create-article-container">
+        <div className="page-container">
 
-            <section className="create-article-hero">
+            <section className={styles.hero}>
 
                 {isSent ? (
                     <>
                         <h1>Votre article a été créé</h1>
+
+                        <p>Retrouvez-le sur la page <Link to="/blog" >Blog</Link></p>
 
                     </>
                 ) : null}
@@ -84,20 +88,20 @@ const CreateArticle = () => {
                 {!isSent && !error ? (
                     <>
 
-                        <h1>Écrire votre artcle</h1>
+                        <h2>Créer un nouvel article</h2>
 
-                        <p>Entrez le titre et le contenu de l'aricle.</p>
-
-                        <form action="" onSubmit={(e) => {
-                                e.preventDefault();
-                                handleCreateArticle();
-                            }}>
-
-                            <Input type="text" name="title" id="title" placeholder="Titre de l'article" value={title} onChange={(e) => setTitle(e.target.value)} />
-                            <textarea name="content" id="content" placeholder="Contenu de l'article" className="article-content-input" value={content} onChange={(e) => setContent(e.target.value)} />
-                        
-                            <Button variant="primary">Envoyer</Button>
-                        </form>
+                            <form onSubmit={(e) => {
+                                    e.preventDefault();
+                                    handleCreateArticle();
+                                }}
+                            >
+                               
+                                <Input type="text" name="title" id="title" placeholder="Titre de l'article" value={title} onChange={(e) => setTitle(e.target.value)} required/>
+                                
+                                <textarea name="content" id="content" placeholder="Contenu de l'article" className={styles.contentInput} value={content} onChange={(e) => setContent(e.target.value)} required/>
+                            
+                                <Button type="submit" variant="primary">Envoyer</Button>
+                            </form>
                     </>
                 ) : null}
 

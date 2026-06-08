@@ -67,7 +67,7 @@ const Login = () => {
 
                 </div>
                 
-                <Link to="/reset-password">Mot de passe oublié ?</Link>
+                <Link to="/forgot-password">Mot de passe oublié ?</Link>
 
                 <p>Vous n’avez pas de compte ? Vous pouvez en <Link to="/signup">créer un</Link></p>
 

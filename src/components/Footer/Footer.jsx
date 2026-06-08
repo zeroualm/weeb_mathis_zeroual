@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { FaYoutube, FaTwitter, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
-import './Footer.css'
+import styles from './Footer.module.css';
 
 const Footer = () => {
     return(
-        <footer>
+        
+        <footer className={styles.footer}>
 
-            <div className="footer-links">
+            <div className={styles.links}>
 
                 <div>
-                    <span className="footer-logo"><Link to="/">weeb</Link></span>
+                    <span className={styles.logo}><Link to="/">weeb</Link></span>
                 </div>
 
                 <div>
@@ -45,40 +46,36 @@ const Footer = () => {
 
             </div>
 
-            <div className="footer-media">
+            <div className={styles.media}>
                 <p>@ 2025 Weeb, Inc. All rights reserved.</p>
 
-                <div className="footer-media-icons">
+                <div className={styles.mediaIcons}>
                     
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube">
-                        <FaYoutube className="icon youtube" />
+                        <FaYoutube className={styles.icon} />
                     </a>
 
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <FaFacebook className="icon" />
+                        <FaFacebook className={styles.icon} />
                     </a>
 
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <FaTwitter className="icon twitter" /> 
+                        <FaTwitter className={styles.icon} /> 
                     </a>
 
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <FaInstagram className="icon instagram" />
+                        <FaInstagram className={styles.icon} />
                     </a>
 
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <FaLinkedin className="icon" />
+                        <FaLinkedin className={styles.icon} />
                     </a>
 
                 </div>
-
             </div>
 
-
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
-
-
+export default Footer;

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-import './Button.css'
+import styles from './Button.module.css';
 
 const Button = ({ children, variant = 'primary', className = '', ...props }) => {
     
-    const classes = `btn btn-${variant} ${className}`;
+    const classes = `${styles.btn} ${styles[variant]} ${className}`.trim();
 
     return (
         <button className={classes} {...props}>
@@ -12,4 +11,4 @@ const Button = ({ children, variant = 'primary', className = '', ...props }) => 
     );
 };
 
-export default Button
+export default Button;

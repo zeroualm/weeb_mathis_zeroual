@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import api from "../context/api";
 import Input from "../components/Input/Input";
 import Button from "../components/Button/Button";
 
@@ -22,7 +22,7 @@ const Signup = () => {
     const handleSignup = async () => {
          try {
             console.log("Envoi de la requête d'enregistrement ...")
-            const response = await axios.post(djangoApiUrlSignup, {
+            const response = await api.post(djangoApiUrlSignup, {
                 email: email,
                 last_name: nom,
                 first_name: prenom,

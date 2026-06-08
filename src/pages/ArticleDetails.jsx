@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+import api from "../context/api";
 
 const ArticleDetails = () => {
 
@@ -11,8 +11,6 @@ const ArticleDetails = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const navigate = useNavigate();
-
     const [article, setArticle] = useState({});
 
     useEffect(() => {
@@ -20,7 +18,7 @@ const ArticleDetails = () => {
         const getArticle = async () => {
             try {
                 console.log("Récupération de l'article ...")
-                const response = await axios.get(djangoApiUrlArticle);
+                const response = await api.get(djangoApiUrlArticle);
                 console.log("Récupération de l'article terminée")
                 console.log(response.data)
                 setArticle(response.data)

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import Input from '../components/Input/Input';
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../context/api";
 
 const Contact = () => {
 
@@ -22,7 +22,7 @@ const Contact = () => {
         try {
             setIsLoading(true);
             console.log("Envoie du messages en cours ...")
-            const response = await axios.post(djangoApiUrlContact, {
+            const response = await api.post(djangoApiUrlContact, {
                 last_name: nom,
                 first_name: prenom,
                 phone_number: telephone,

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../context/api";
 import Article from "../components/Article/Article";
 import Button from "../components/Button/Button";
 
@@ -20,7 +20,7 @@ const Blog = () => {
         const getArticles = async () => {
             try {
                 console.log("Récupération des articles ...")
-                const response = await axios.get(djangoApiUrlArticle);
+                const response = await api.get(djangoApiUrlArticle);
                 console.log("Récupération des articles terminée")
                 console.log(response.data)
                 setArticles(response.data)

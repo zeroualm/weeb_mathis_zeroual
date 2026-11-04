@@ -26,6 +26,11 @@
     margin-inline: auto;
 }
 
+.cardLink { 
+    text-decoration: none;
+    color: inherit; 
+}
+
 /* Responsive */
 
 @media only screen and (max-width:980px){

@@ -35,4 +35,4 @@ jobs:
         run: npm ci
 
       - name: 5. Exécution des tests
-        run: npm test
+        run: npm test:run

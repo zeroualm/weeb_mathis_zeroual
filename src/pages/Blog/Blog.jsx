@@ -58,12 +58,14 @@ const Blog = () => {
 
             </section>
             
-           <section className={styles.articles} onClick={() => navigate("/article/1")}>
+           <section className={styles.articles}>
 
                 {articles.map((article) => (
-                    <Article key={article.id} title={article.title} content={article.content} date={article.created_at} />
+                    <Link key={article.id} to={`/article/${article.id}`} className={styles.cardLink}>
+                        <Article title={article.title} content={article.content} date={article.created_at} />
+                    </Link>
                 ))}
-
+                
             </section>
 
         </div>

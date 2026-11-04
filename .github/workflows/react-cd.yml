@@ -1,0 +1,33 @@
+name: CD - Build de l'Application React 
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: Construire et Tester
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v7.0.1
+
+      # Étape 2 : Mettre en place l'environnement Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: "20" # On spécifie une version LTS (Long Term Support)
+          cache: "npm" # Active le caching pour npm automatiquement
+
+      # Étape 3 : Installer les dépendances
+      - name: Installation des dépendances
+        run: npm ci
+
+      # Étape 4 : Lancer les tests
+      - name: Exécution des tests
+        run: npm test
+
+      # Étape 5 : Construire l'application
+      - name: Build de l'application
+        run: npm run build

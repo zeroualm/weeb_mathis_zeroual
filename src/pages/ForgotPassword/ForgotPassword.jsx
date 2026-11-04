@@ -6,7 +6,6 @@ import Button from "../../components/Button/Button";
 import styles from "./ForgotPassword.module.css"
 
 const ForgotPassword = () => {
-    const djangoApiUrlReset = `http://localhost:8000/api/users/password-reset/request/`; 
 
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +18,7 @@ const ForgotPassword = () => {
         setIsLoading(true);
         try {
             console.log("Envoi de la requête de réinitialisation du mot de passe ...")
-            const response = await api.post(djangoApiUrlReset, {
+            const response = await api.post("/api/users/password-reset/request/", {
                 email: email
             });
             console.log("Requête de réinitialisation du mot de passe terminée");

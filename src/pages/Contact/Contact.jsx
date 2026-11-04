@@ -17,13 +17,11 @@ const Contact = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState(""); 
 
-    const djangoApiUrlContact = "http://127.0.0.1:8000/contact/"
-
     const handleSubmit = async () => {
         try {
             setIsLoading(true);
             console.log("Envoie du messages en cours ...")
-            const response = await api.post(djangoApiUrlContact, {
+            const response = await api.post("/contact/", {
                 last_name: nom,
                 first_name: prenom,
                 phone_number: telephone,

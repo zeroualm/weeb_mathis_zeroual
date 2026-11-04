@@ -12,8 +12,6 @@ const Blog = () => {
 
     const navigate = useNavigate();
 
-    const djangoApiUrlArticle = "http://localhost:8000/article/"
-
     const [articles, setArticles] = useState([]);
     
     useEffect(() => {
@@ -21,7 +19,7 @@ const Blog = () => {
         const getArticles = async () => {
             try {
                 console.log("Récupération des articles ...")
-                const response = await api.get(djangoApiUrlArticle);
+                const response = await api.get("/article/");
                 console.log("Récupération des articles terminée")
                 console.log(response.data)
                 setArticles(response.data)

@@ -12,8 +12,6 @@ const ResetPassword = () => {
     const uidb64 = searchParams.get("uidb64")
     const token = searchParams.get("token")
 
-    const djangoApiUrlReset = `http://localhost:8000/api/users/password-reset/confirm/`; 
-
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [password, setPassword] = useState("")
@@ -25,7 +23,7 @@ const ResetPassword = () => {
         try {
             
             console.log("Envoi de la requête de réinitialisation du mot de passe ...")
-            const response = await api.post(djangoApiUrlReset, {
+            const response = await api.post("/api/users/password-reset/confirm/", {
                 uidb64:uidb64,
                 token:token,
                 password: password

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:8000/api/",
+    baseURL: import.meta.env.VITE_API_URL,
     withCredentials: true,
 });
 
@@ -39,7 +39,7 @@ api.interceptors.response.use(
 
             try {
 
-                const res = await api.post("users/token/refresh/");
+                const res = await api.post("/api/users/token/refresh/");
 
                 // Sauvegarde du nouvel access token
                 sessionStorage.setItem("access", res.data.access);

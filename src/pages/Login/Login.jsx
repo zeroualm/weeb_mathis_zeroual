@@ -7,6 +7,8 @@ import api from "../../context/api";
 import { useAuth } from "../../context/AuthProvider";
 import styles from "./Login.module.css"
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const Login = () => {
 
     const {login} = useAuth();
@@ -16,35 +18,40 @@ const Login = () => {
     const navigate = useNavigate();
     const [error,setError] = useState(null)
 
+    const isEmailValid = EMAIL_REGEX.test(email);
+    const isPasswordValid = password.length >= 8;
+    const isFormValid = isEmailValid && isPasswordValid;
+
     const handleLogin = async () => {
 
         setError(null);
 
-        try {
-            const res = await api.post(
-                "users/token/",
-                { email, password },
-                { withCredentials: true }
-            );
-            login(res.data.access, res.data.refresh);
-            navigate("/");
-        } catch (err) {
-            if (err.response && err.response.status === 404) {
-                console.log(err.response.data);
-                setError("Erreur 404");
-            }
-            else {
-                console.error("--- ERROR FETCHING DATA ---");
-                console.error(err.response);
-                if (err.response && err.response.data) {
-                    setError(JSON.stringify(err.response.data)); 
-                } else {
-                    setError(err.message); 
+        if (isFormValid) {
+            try {
+                const res = await api.post(
+                    "users/token/",
+                    { email, password },
+                    { withCredentials: true }
+                );
+                login(res.data.access, res.data.refresh);
+                navigate("/");
+            } catch (err) {
+                if (err.response && err.response.status === 404) {
+                    console.log(err.response.data);
+                    setError("Erreur 404");
+                }
+                else {
+                    console.error("--- ERROR FETCHING DATA ---");
+                    console.error(err.response);
+                    if (err.response && err.response.data) {
+                        setError(JSON.stringify(err.response.data)); 
+                    } else {
+                        setError(err.message); 
+                    }
                 }
             }
-        }
-    };
-
+        };
+    }
 
     return (
         <div className="page-container">
@@ -60,10 +67,10 @@ const Login = () => {
                         handleLogin();
                     }}>
 
-                        <Input type="text" name="email" id="email" placeholder="Adresse e-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <Input type="password" name="password" id="password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <Input type="text" name="email" id="email" placeholder="Adresse e-mail" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input type="password" name="password" id="password" placeholder="Mot de passe" required value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                        <Button variant="primary">Se connecter</Button>
+                        <Button variant="primary" type="submit" disabled={!isFormValid}>Se connecter</Button>
                     </form>
 
                 </div>

@@ -9,13 +9,20 @@
     transition: all 0.2s ease-in-out;
 }
 
+.btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
 .primary {
     background-color: var(--btn-purple);
     border: 2px solid var(--btn-purple);
     color: white;
 }
 
-.primary:hover {
+.primary:not(:disabled):hover {
     background-color: transparent;
     color: var(--btn-purple);
 }
@@ -26,7 +33,7 @@
     color: white;
 }
 
-.secondary:hover {
+.secondary:not(:disabled):hover {
     background-color: white;
     color: var(--btn-purple);
 }

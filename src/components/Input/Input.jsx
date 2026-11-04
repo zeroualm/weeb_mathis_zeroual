@@ -1,11 +1,10 @@
-import React from 'react';
-import styles from './Input.module.css'
+import styles from "./Input.module.css";
 
-const Input = ({ className = '', ...props }) => {
+const Input = ({ className = "", ...props }) => {
     return (
-        <input 
-            className={`contact-form-grid-input ${className}`} 
-            {...props} 
+        <input
+            className={`${styles.input} ${className}`.trim()}
+            {...props}
         />
     );
 };

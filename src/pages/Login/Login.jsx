@@ -29,7 +29,7 @@ const Login = () => {
         if (isFormValid) {
             try {
                 const res = await api.post(
-                    "users/token/",
+                    "/api/users/token/",
                     { email, password },
                     { withCredentials: true }
                 );

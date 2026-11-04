@@ -7,8 +7,6 @@ const ArticleDetails = () => {
 
     const { id } = useParams();
     
-    const djangoApiUrlArticle = `http://localhost:8000/article/${id}/`; 
-
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -19,7 +17,7 @@ const ArticleDetails = () => {
         const getArticle = async () => {
             try {
                 console.log("Récupération de l'article ...")
-                const response = await api.get(djangoApiUrlArticle);
+                const response = await api.get(`/article/${id}/`);
                 console.log("Récupération de l'article terminée")
                 console.log(response.data)
                 setArticle(response.data)

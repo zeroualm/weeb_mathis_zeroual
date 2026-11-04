@@ -11,8 +11,6 @@ const CreateArticle = () => {
     
     const { token } = useAuth();
 
-    const djangoApiUrlSignup = `http://localhost:8000/article/`; 
-
     const [isSent,setIsSent] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -26,7 +24,7 @@ const CreateArticle = () => {
          try {
             console.log("Envoi de la requête d'ajout d'article ...")
             const response = await api.post(
-                djangoApiUrlSignup, 
+                "/article/", 
                 {
                     title: title,
                     content: content,

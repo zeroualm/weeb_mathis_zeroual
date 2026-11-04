@@ -77,7 +77,7 @@ describe('Login', () => {
 
         expect(api.post).toHaveBeenCalledTimes(1);
         expect(api.post).toHaveBeenCalledWith(
-            'users/token/',
+            '/api/users/token/',
             { email: 'user@test.com', password: 'a-valid-password' },
             { withCredentials: true }
         );

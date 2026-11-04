@@ -7,8 +7,6 @@ import styles from "./Signup.module.css"
 
 const Signup = () => {
     
-    const djangoApiUrlSignup = `http://localhost:8000/api/users/signup/`; 
-
     const [isSent,setIsSent] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -23,7 +21,7 @@ const Signup = () => {
     const handleSignup = async () => {
          try {
             console.log("Envoi de la requête d'enregistrement ...")
-            const response = await api.post(djangoApiUrlSignup, {
+            const response = await api.post("/api/users/signup/", {
                 email: email,
                 last_name: nom,
                 first_name: prenom,

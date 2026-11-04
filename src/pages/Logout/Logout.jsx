@@ -14,7 +14,7 @@ const Logout = () => {
             try {
                 const refreshToken = sessionStorage.getItem("refresh");
                 if (refreshToken) {
-                    await api.post("users/logout/", { refresh_token: refreshToken });
+                    await api.post("api/users/logout/", { refresh_token: refreshToken });
                 }
             } catch (error) {
                 console.error("Erreur API lors de la déconnexion", error);

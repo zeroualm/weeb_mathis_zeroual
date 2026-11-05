@@ -25,8 +25,8 @@ if (import.meta.env.PROD) {
         dsn: import.meta.env.VITE_SENTRY_DSN,
 
         integrations: [
-            Sentry.browserTracing(), 
-            Sentry.replay()
+            Sentry.browserTracingIntegration(),
+            Sentry.replayIntegration({ maskAllText: true, blockAllMedia: true }),
         ],
 
         traces_sample_rate: 1.0,

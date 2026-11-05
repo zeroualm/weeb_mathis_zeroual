@@ -14,6 +14,12 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const handleCrash = () => {
+        // Fonction crash pour Sentry
+        const user = undefined;
+        console.log(user.name);
+      };
+
     return(
         
         <nav className={styles.nav}>
@@ -23,6 +29,7 @@ const Header = () => {
                 {/* styles.link permet de les cacher sur mobile */}
                 <Link to="/blog" className={styles.link}>Blog</Link>
                 <Link to="/contact" className={styles.link}>Contact</Link>
+                <Button onClick={handleCrash}>Crash Test</Button>
             </div>
 
             <div className={styles.section}>

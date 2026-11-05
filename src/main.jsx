@@ -17,6 +17,25 @@ import Signup from './pages/Signup/Signup.jsx'
 import CreateArticle from './pages/CreateArticle/CreateArticle.jsx'
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 
+import * as Sentry from "@sentry/react";
+
+// Sentry
+if (import.meta.env.PROD) {
+    Sentry.init({
+        dsn: import.meta.env.VITE_SENTRY_DSN,
+
+        integrations: [
+            Sentry.browserTracing(), 
+            Sentry.replay()
+        ],
+
+        traces_sample_rate: 1.0,
+
+        replays_session_sample_rate: 0.1,
+        replays_on_error_sample_rate: 1.0,
+    });
+}
+
 const router = createBrowserRouter([
     {
         path: "/",

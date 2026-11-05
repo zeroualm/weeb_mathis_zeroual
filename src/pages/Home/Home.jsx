@@ -14,6 +14,7 @@ import Shapes from "../../assets/Shapes.svg"
 import styles from "./Home.module.css"
 
 const Home = () => {
+
     return (
         <div className={`page-container ${styles.container}`}>
 
